@@ -15,6 +15,9 @@ router.get('/help', forwardAuthenticated, (req, res) => res.render('faq'));
 // TERMS
 router.get('/terms-and-condition', forwardAuthenticated, (req, res) => res.render('terms'));
 
+//PRIVACY POLICY
+router.get('/privacy-policy', forwardAuthenticated, (req, res) => res.render('privacy'));
+
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
