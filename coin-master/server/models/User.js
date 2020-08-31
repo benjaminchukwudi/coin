@@ -13,6 +13,10 @@ fisrt_name: {
     type: String,
     required: true
   },
+  bitcoin_address: {
+    type: String,
+    required: true
+  },
   password: {
     type: String,
     required: true

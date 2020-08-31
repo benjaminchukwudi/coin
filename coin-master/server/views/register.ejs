@@ -16,8 +16,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">CONTACT</a>
+            <a class="nav-link" href="/contact">ABOUT US</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/help">FAQ
+            </a>
+        </li>
           <li class="nav-item dropdown">
             <div class="dropdown">
               <a href="/dashboard" class="nav-link">PLANS</a>
@@ -77,6 +81,17 @@
             class="form-control"
             placeholder="Enter Email"
             value="<%= typeof email != 'undefined' ? email : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="bitcoin_address">Bitcoin address</label>
+          <input
+            type="bitcoin_address"
+            id="bitcoin_address"
+            name="bitcoin_address"
+            class="form-control"
+            placeholder="Enter bitcoin_address"
+            value="<%= typeof bitcoin_address != 'undefined' ? bitcoin_address : '' %>"
           />
         </div>
         <div class="form-group">

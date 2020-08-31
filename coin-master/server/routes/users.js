@@ -16,11 +16,11 @@ router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 // Register
 router.post('/register', (req, res) => {
-  const { fisrt_name, last_name, email, password, password2, usedcode } = req.body;
+  const { fisrt_name, last_name, email, password, password2, usedcode, bitcoin_address,} = req.body;
   let errors = [];
   const referalcode = fisrt_name + Math.floor(Math.random() * 76876559);
 
-  if (!fisrt_name || !last_name|| !email || !password || !password2) {
+  if (!fisrt_name || !last_name|| !email || !password || !password2  || !bitcoin_address) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -39,7 +39,8 @@ router.post('/register', (req, res) => {
       last_name,
       email,
       password,
-      password2
+      password2,
+      bitcoin_address
     });
   } else {
     User.findOne({ email: email }).then(user => {
@@ -53,7 +54,8 @@ router.post('/register', (req, res) => {
           password,
           password2,
           usedcode,
-          referalcode
+          referalcode,
+          bitcoin_address
         });
       } else {
         const newUser = new User({
@@ -63,7 +65,8 @@ router.post('/register', (req, res) => {
           password,
           password2,
           usedcode,
-          referalcode
+          referalcode,
+          bitcoin_address
         });
 
         
@@ -267,7 +270,7 @@ router.post('/register', (req, res) => {
                     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                     <!--<![endif]-->
                     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center autowidth" src="https://coinanalytica.com/images/Your_Logo.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 154px; display: block;" title="Alternate text" width="154"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center autowidth" src="https://coinanalytica.com/images/Your_Logo.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 154px; display: block;" title="Alternate text" width="154"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if (!mso)&(!IE)]><!-->
@@ -361,7 +364,7 @@ router.post('/register', (req, res) => {
                     </tbody>
                     </table>
                     <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="I'm an image" border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Welcome_Email.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 420px; display: block;" title="I'm an image" width="420"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Welcome_Email.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 420px; display: block;" title="I'm an image" width="420"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 40px; padding-left: 40px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, sans-serif"><![endif]-->
@@ -537,7 +540,7 @@ router.post('/register', (req, res) => {
                     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                     <!--<![endif]-->
                     <div align="center" class="img-container center fixedwidth" style="padding-right: 40px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 40px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="I'm an image" border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Step_1_1.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 193px; display: block;" title="I'm an image" width="193"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 40px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Step_1_1.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 193px; display: block;" title="I'm an image" width="193"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if (!mso)&(!IE)]><!-->
@@ -596,7 +599,7 @@ router.post('/register', (req, res) => {
                     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                     <!--<![endif]-->
                     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 40px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 40px;" align="center"><![endif]--><img align="center" alt="I'm an image" border="0" class="center autowidth" src="https://coinanalytica.com/images/Step_2_2.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 193px; display: block;" title="I'm an image" width="193"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 40px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center autowidth" src="https://coinanalytica.com/images/Step_2_2.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 193px; display: block;" title="I'm an image" width="193"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if (!mso)&(!IE)]><!-->
@@ -738,7 +741,7 @@ router.post('/register', (req, res) => {
                     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                     <!--<![endif]-->
                     <div align="center" class="img-container center autowidth" style="padding-right: 35px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 35px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="I'm an image" border="0" class="center autowidth" src="https://coinanalytica.com/images/Step_3_1.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 198px; display: block;" title="I'm an image" width="198"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 35px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center autowidth" src="https://coinanalytica.com/images/Step_3_1.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 198px; display: block;" title="I'm an image" width="198"/>
                     <div style="font-size:1px;line-height:10px"> </div>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
@@ -798,7 +801,7 @@ router.post('/register', (req, res) => {
                     <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                     <!--<![endif]-->
                     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center autowidth" src="https://coinanalytica.com/images/white_down.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 700px; display: block;" title="Alternate text" width="700"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center autowidth" src="https://coinanalytica.com/images/white_down.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 700px; display: block;" title="Alternate text" width="700"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if (!mso)&(!IE)]><!-->
@@ -901,12 +904,12 @@ router.post('/register', (req, res) => {
                     </div>
                     <!--[if mso]></td></tr></table><![endif]-->
                     <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="https://coinanalytica.com/images/App_Store_Badge_US_Black.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 175px; display: block;" title="Alternate text" width="175"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center fixedwidth" src="https://coinanalytica.com/images/App_Store_Badge_US_Black.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 175px; display: block;" title="Alternate text" width="175"/>
                     <div style="font-size:1px;line-height:15px"> </div>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Google_Play_Badge_US.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 175px; display: block;" title="Alternate text" width="175"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center fixedwidth" src="https://coinanalytica.com/images/Google_Play_Badge_US.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 175px; display: block;" title=" " width="175"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
@@ -952,7 +955,7 @@ router.post('/register', (req, res) => {
                     </tbody>
                     </table>
                     <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="https://coinanalytica.com/images/app_image_2.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 297px; display: block;" title="Alternate text" width="297"/>
+                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt=" " border="0" class="center fixedwidth" src="https://coinanalytica.com/images/app_image_2.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 297px; display: block;" title="Alternate text" width="297"/>
                     <!--[if mso]></td></tr></table><![endif]-->
                     </div>
                     <!--[if (!mso)&(!IE)]><!-->
