@@ -42,7 +42,7 @@ let starter = document.getElementById('starter');
 let starterLow = document.getElementById('staterlow')
 
 
-if(balance.innerText == "$00.00"){
+if(balance.innerText == "$00.00" || "$09.06"){
     starter.classList.remove("showup");
 }
 console.log(balance);
