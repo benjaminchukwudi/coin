@@ -18,6 +18,9 @@ router.get('/terms-and-condition', forwardAuthenticated, (req, res) => res.rende
 //PRIVACY POLICY
 router.get('/privacy-policy', forwardAuthenticated, (req, res) => res.render('privacy'));
 
+//REFUND POLICY
+router.get('/refund-policy', forwardAuthenticated, (req, res) => res.render('refund'));
+
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
